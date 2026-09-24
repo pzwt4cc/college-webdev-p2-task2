@@ -1,6 +1,10 @@
 "use strict";
 
 function formattedPhone(phone) {
+  if (phone.length < 10) {
+    return "Format error";
+  }
+
   const cleanPhone = phone.slice(-10);
 
   const code = cleanPhone.slice(0, 3);
@@ -8,7 +12,8 @@ function formattedPhone(phone) {
   const part2 = cleanPhone.slice(6, 8);
   const part3 = cleanPhone.slice(8, 10);
 
-  return `+38 (${code} ${part1}-${part2}-${part3})`;
+  return `+38 (${code}) ${part1}-${part2}-${part3}`;
 }
 
-console.log(formattedPhone("0671234567"));
+const userPhone = prompt("Type phone number:");
+alert(formattedPhone(userPhone));
